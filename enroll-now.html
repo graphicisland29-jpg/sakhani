@@ -1,0 +1,691 @@
+<!-- ======================================================= -->
+<!-- COPY EVERYTHING BELOW AND PASTE DIRECTLY INTO ELEMENTOR -->
+<!-- ======================================================= -->
+
+<!-- 1. FONTS & ICONS -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- 2. TAILWIND CSS & CONFIG -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    important: '.sakheni-enroll-premium',
+    corePlugins: { preflight: false },
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#205139",
+          "secondary": "#7b5900",
+          "background": "#fff8f2",
+          "surface": "#ffffff",
+          "primary-dark": "#123524",
+          "accent-gold": "#fcca66",
+        }
+      }
+    }
+  }
+</script>
+
+<!-- 3. SCOPED CSS RESET & PREMIUM STYLES -->
+<style>
+.elementor-widget-html { width: 100% !important; }
+.elementor-widget-html .elementor-widget-container { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+.sakheni-enroll-premium {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: #fff8f2;
+    color: #211b0f;
+    font-family: 'Work Sans', sans-serif;
+}
+@media (max-width: 100vw) {
+    .sakheni-enroll-premium { width: 100%; left: auto; right: auto; margin-left: 0; margin-right: 0; }
+}
+
+.sakheni-enroll-premium *, .sakheni-enroll-premium ::before, .sakheni-enroll-premium ::after {
+    box-sizing: inherit;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+.sakheni-enroll-premium h1, .sakheni-enroll-premium h2, .sakheni-enroll-premium h3, .sakheni-enroll-premium p, .sakheni-enroll-premium label { margin: 0; padding: 0; }
+.sakheni-enroll-premium a { color: inherit; text-decoration: inherit; }
+
+html:not(.no-js) [data-aos^=fade][data-aos^=fade] { opacity: 1 !important; transform: none !important; }
+
+/* Input Wrappers & Icons - FIXED FOR ZERO OVERLAP */
+.input-wrapper {
+    display: flex;
+    align-items: stretch;
+    background: #ffffff;
+    border: 1px solid #c1c8c1;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+}
+.input-wrapper:focus-within {
+    border-color: #fcca66;
+    box-shadow: 0 0 0 4px rgba(252, 202, 102, 0.15), 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+.input-wrapper.is-valid { border-color: #205139; }
+
+/* The Icon Box - Strictly Outside the typing area */
+.icon-outside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px; /* Fixed width to prevent compression */
+    flex-shrink: 0; /* Never squish the icon on small screens */
+    background: #fdf5e8;
+    border-right: 1px solid #c1c8c1;
+    color: #7b5900;
+    transition: all 0.3s ease;
+}
+.input-wrapper:focus-within .icon-outside {
+    background: #fcca66;
+    color: #123524;
+    border-right-color: #fcca66;
+}
+.input-wrapper.is-valid .icon-outside {
+    background: #e8f3ec;
+    color: #205139;
+    border-right-color: #205139;
+}
+
+/* Form Inputs */
+.premium-input {
+    flex: 1;
+    min-width: 0; /* Crucial: stops flex items from blowing out their container */
+    width: 100%;
+    background: transparent;
+    color: #123524;
+    font-size: 16px !important; /* 16px forcibly stops iOS Safari from zooming in */
+    font-weight: 500;
+    padding: 14px;
+    border: none;
+    outline: none;
+    text-overflow: ellipsis; /* Truncates long text smoothly instead of breaking layout */
+    white-space: nowrap;
+    overflow: hidden;
+}
+.premium-input::placeholder { color: #a0b3a8; font-weight: 400; }
+
+select.premium-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%237b5900'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+}
+
+/* Textarea specific alignment */
+textarea.premium-input {
+    white-space: pre-wrap; /* Allows text to wrap normally in textareas */
+    overflow-y: auto;
+}
+.textarea-wrapper { align-items: stretch; }
+.textarea-wrapper .icon-outside { padding-top: 14px; align-items: flex-start; }
+
+/* Checkboxes */
+.premium-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.premium-checkbox-label:hover { background: rgba(252, 202, 102, 0.05); border-color: rgba(252, 202, 102, 0.2); }
+.premium-checkbox {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #c1c8c1;
+    border-radius: 6px;
+    background-color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.premium-checkbox:checked {
+    background-color: #205139;
+    border-color: #205139;
+    transform: scale(1.05);
+}
+.premium-checkbox:checked::after {
+    content: '\e876';
+    font-family: 'Material Symbols Outlined';
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Form Sections Interactive Focus */
+.form-section {
+    transition: all 0.5s ease;
+    border-left: 3px solid transparent;
+    padding-left: 16px;
+    margin-left: -19px;
+}
+.form-section.active-section {
+    border-left-color: #fcca66;
+    background: linear-gradient(90deg, rgba(252,202,102,0.03) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 0 16px 16px 0;
+}
+
+/* Submit Button Pulse & Shine */
+@keyframes pulse-gold {
+    0% { box-shadow: 0 0 0 0 rgba(252, 202, 102, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(252, 202, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(252, 202, 102, 0); }
+}
+.btn-submit {
+    position: relative;
+    overflow: hidden;
+    animation: pulse-gold 3s infinite;
+}
+.btn-submit::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(30deg) translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-submit:hover::after { transform: rotate(30deg) translateX(100%); }
+
+/* Progress Bar */
+.progress-container {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 24px 24px 0 0;
+}
+.progress-track {
+    flex-grow: 1;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    margin: 0 20px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #205139, #123524);
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+}
+</style>
+
+<!-- 4. MAIN HTML CONTENT -->
+<div class="sakheni-enroll-premium">
+
+    <!-- Compact Hero Section with Orbs -->
+    <section class="relative py-16 md:py-24 bg-[#123524] overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fcca66_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="absolute top-0 right-10 w-[300px] h-[300px] bg-[#205139] rounded-full blur-[90px] opacity-60"></div>
+        <div class="absolute -bottom-20 left-10 w-[250px] h-[250px] bg-[#fcca66] rounded-full blur-[100px] opacity-20"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-5 text-center" data-aos="fade-up">
+            <span class="inline-block bg-[#163625] border border-[#fcca66]/30 text-[#fcca66] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6 rounded-full shadow-sm">Application Portal</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl text-white font-['Noto_Serif'] font-bold mb-4">Secure Your Spot Today.</h1>
+            <p class="text-[#a5f3c6] text-sm md:text-base font-light max-w-lg mx-auto">Complete this form to reserve your place. Our admissions team will contact you to finalize details. <strong class="text-white">No upfront payment required.</strong></p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="relative z-20 max-w-[900px] w-full mx-auto px-3 sm:px-6 md:px-8 -mt-12 mb-24">
+
+        <!-- Success Message -->
+        <div id="success-message" class="hidden bg-white rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.12)] p-10 md:p-16 text-center border border-[#c1c8c1]/30 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,#fdf5e8_0%,transparent_100%)] opacity-50"></div>
+            <div class="relative z-10">
+                <div class="w-24 h-24 bg-[#e8f3ec] rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                    <span class="material-symbols-outlined text-[50px] text-[#205139]">verified</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#123524] font-['Noto_Serif'] mb-4">Application Received!</h2>
+                <p class="text-[#424943] text-lg mb-10 max-w-md mx-auto leading-relaxed">Thank you for choosing Sakheni Ma Africa. Our team is reviewing your details and will call you shortly to confirm your enrollment.</p>
+                <a href="https://sakhenimaafrica.co.za/courses" class="inline-flex items-center justify-center gap-2 bg-[#123524] text-[#fcca66] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#205139] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    Return to Courses
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+                <div class="mt-8 flex justify-center">
+                    <img src="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/Untitled-1.png" alt="Sakheni Ma Africa" class="h-10 w-auto object-contain opacity-70">
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Form Container -->
+        <div id="form-container" class="bg-white/95 backdrop-blur-2xl rounded-[32px] shadow-[0_25px_60px_rgba(0,0,0,0.08)] border border-white/60 relative">
+
+            <!-- Sticky Progress Bar -->
+            <div class="progress-container">
+                <span class="text-[11px] sm:text-xs font-bold text-[#84a391] uppercase tracking-widest hidden sm:block">Progress</span>
+                <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+                <span class="text-xs font-bold text-[#123524]" id="progress-text">0%</span>
+            </div>
+
+            <!-- FormSubmit Configuration -->
+            <form id="enrollForm" class="p-5 sm:p-8 md:p-10 lg:p-12 pt-8" novalidate>
+                <input type="hidden" name="_subject" value="New Student Enrollment Application!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
+                <!-- Section 1: Course Selection -->
+                <div class="form-section mb-12" id="sec-1">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#fdf5e8] border border-[#fcca66]/40 rounded-xl flex items-center justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-[#7b5900]">school</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#123524] font-['Noto_Serif'] leading-tight">Training Preferences</h3>
+                            <p class="text-xs text-[#84a391] mt-1">Select the course you wish to join</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Target Course <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">engineering</span>
+                                </div>
+                                <select id="course" name="course" required class="premium-input req-input">
+                                    <option value="" disabled selected>Select a program...</option>
+                                    <optgroup label="Welding Programs">
+                                        <option value="Arc & Co2 Welding">Arc & Co2 Welding</option>
+                                        <option value="Welding Co2 & Arc">Welding Co2 & Arc</option>
+                                        <option value="TIG Welding">TIG Welding</option>
+                                        <option value="Arc Welding">Arc Welding</option>
+                                        <option value="Welding Combo Masterclass">Welding Combo Masterclass</option>
+                                        <option value="Coded Welding">Coded Welding</option>
+                                    </optgroup>
+                                    <optgroup label="Construction & Trades">
+                                        <option value="Bricklayer's Assistant">Bricklayer's Assistant</option>
+                                        <option value="Renewable Energy Assistant">Renewable Energy Assistant</option>
+                                        <option value="Plumbing Hand">Plumbing Hand</option>
+                                        <option value="Assistant Handyperson">Assistant Handyperson</option>
+                                    </optgroup>
+                                    <optgroup label="Skills & Assessments">
+                                        <option value="Trade Assessment">Trade Assessment</option>
+                                        <option value="Workplace Essential Skills">Workplace Essential Skills</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Start Month <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                                </div>
+                                <select id="start_date" name="start_date" required class="premium-input req-input">
+                                    <option value="" disabled selected>Select timing...</option>
+                                    <option value="Immediate">Immediately (Next Intake)</option>
+                                    <option value="1 Month">In 1 Month</option>
+                                    <option value="2-3 Months">In 2-3 Months</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Highest NQF Level</label>
+                            <div class="input-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+                                </div>
+                                <select id="qualification" name="qualification" class="premium-input">
+                                    <option value="" disabled selected>Select qualification...</option>
+                                    <option value="Below Grade 9">Below Grade 9</option>
+                                    <option value="Grade 9 / ABET Level 4">Grade 9 / ABET Level 4</option>
+                                    <option value="Matric / Grade 12">Matric / Grade 12</option>
+                                    <option value="NQF Level 4+">NQF Level 4 or higher</option>
+                                    <option value="Trade Test">Completed Trade Test</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Personal Details -->
+                <div class="form-section mb-12" id="sec-2">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#fdf5e8] border border-[#fcca66]/40 rounded-xl flex items-center justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-[#7b5900]">badge</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#123524] font-['Noto_Serif'] leading-tight">Personal Information</h3>
+                            <p class="text-xs text-[#84a391] mt-1">Tell us who you are</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">First Name <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">person</span>
+                                </div>
+                                <input type="text" id="first_name" name="first_name" required placeholder="e.g. Sipho" class="premium-input req-input">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Last Name <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">person</span>
+                                </div>
+                                <input type="text" id="last_name" name="last_name" required placeholder="e.g. Ndlovu" class="premium-input req-input">
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Gender</label>
+                            <div class="input-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">wc</span>
+                                </div>
+                                <select id="gender" name="gender" class="premium-input">
+                                    <option value="" disabled selected>Select gender...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Contact Details -->
+                <div class="form-section mb-12" id="sec-3">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#fdf5e8] border border-[#fcca66]/40 rounded-xl flex items-center justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-[#7b5900]">contact_phone</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#123524] font-['Noto_Serif'] leading-tight">Contact Details</h3>
+                            <p class="text-xs text-[#84a391] mt-1">How can we reach you?</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">WhatsApp / Phone <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">call</span>
+                                </div>
+                                <input type="tel" id="phone" name="phone" required placeholder="082 000 0000" class="premium-input req-input">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Email Address</label>
+                            <div class="input-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">mail</span>
+                                </div>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" class="premium-input">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">City / Town <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">location_city</span>
+                                </div>
+                                <input type="text" id="city" name="city" required placeholder="e.g. Johannesburg" class="premium-input req-input">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Province <span class="text-red-500">*</span></label>
+                            <div class="input-wrapper req-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">map</span>
+                                </div>
+                                <select id="province" name="province" required class="premium-input req-input">
+                                    <option value="" disabled selected>Select province...</option>
+                                    <option value="Gauteng">Gauteng</option>
+                                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                                    <option value="Western Cape">Western Cape</option>
+                                    <option value="Eastern Cape">Eastern Cape</option>
+                                    <option value="Free State">Free State</option>
+                                    <option value="Limpopo">Limpopo</option>
+                                    <option value="Mpumalanga">Mpumalanga</option>
+                                    <option value="North West">North West</option>
+                                    <option value="Northern Cape">Northern Cape</option>
+                                    <option value="Outside SA">Outside South Africa</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Final Details & Acknowledgment -->
+                <div class="form-section mb-10" id="sec-4">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-[#fdf5e8] border border-[#fcca66]/40 rounded-xl flex items-center justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-[#7b5900]">fact_check</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#123524] font-['Noto_Serif'] leading-tight">Final Details</h3>
+                            <p class="text-xs text-[#84a391] mt-1">Message and confirmation</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-[#205139] uppercase tracking-wider mb-2 pl-1">Any questions or physical requirements?</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <div class="icon-outside">
+                                    <span class="material-symbols-outlined text-[20px]">chat</span>
+                                </div>
+                                <textarea id="message" name="message" rows="3" placeholder="Optional notes for our admin team..." class="premium-input resize-none"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Elegant Checkboxes -->
+                        <div class="bg-[#fdf5e8] p-2 rounded-2xl border border-[#fcca66]/20 mt-4">
+                            <label class="premium-checkbox-label group">
+                                <input type="checkbox" class="premium-checkbox req-input" required>
+                                <span class="text-sm text-[#424943] leading-relaxed mt-0.5">I understand this is an enrollment inquiry. A representative will contact me to finalize registration and discuss fees.</span>
+                            </label>
+                            <div class="h-[1px] bg-[#fcca66]/20 mx-4"></div>
+                            <label class="premium-checkbox-label group">
+                                <input type="checkbox" class="premium-checkbox req-input" required>
+                                <span class="text-sm text-[#424943] leading-relaxed mt-0.5">I confirm that the information provided is accurate and truthful to the best of my knowledge.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-12 pt-8 border-t border-[#e5e7eb] flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <p class="text-[11px] sm:text-xs text-[#84a391] max-w-xs text-center sm:text-left flex items-center justify-center sm:justify-start gap-2">
+                        <span class="material-symbols-outlined text-[16px]">lock</span>
+                        Your information is secure.
+                    </p>
+                    <button type="submit" id="submitBtn" class="btn-submit w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#123524] text-[#fcca66] px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-[12px] sm:text-[13px] hover:bg-[#0a1e15] shadow-[0_10px_20px_rgba(18,53,36,0.2)] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span>Submit Application</span>
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">send</span>
+                    </button>
+                </div>
+
+                <!-- Brand Mark -->
+                <div class="mt-10 flex justify-center pb-2">
+                    <img src="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/Untitled-1.png" alt="Sakheni Ma Africa" class="h-12 md:h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+<!-- 5. SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Init Animations
+      if(typeof AOS !== 'undefined') {
+          AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 50 });
+      }
+
+      // Auto-select course from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseParam = urlParams.get('course');
+      if(courseParam) {
+          const selectEl = document.getElementById('course');
+          for(let i = 0; i < selectEl.options.length; i++) {
+              if(selectEl.options[i].value === courseParam || selectEl.options[i].value.includes(courseParam)) {
+                  selectEl.selectedIndex = i;
+                  break;
+              }
+          }
+      }
+
+      // 1. Live Validation (Color change only, no overlapping icons)
+      const allInputs = document.querySelectorAll('.premium-input');
+      allInputs.forEach(input => {
+          input.addEventListener('input', function() {
+              const wrapper = this.closest('.input-wrapper');
+              if(this.value.trim() !== '') {
+                  wrapper.classList.add('is-valid');
+              } else {
+                  wrapper.classList.remove('is-valid');
+              }
+              calculateProgress();
+          });
+
+          if(input.tagName === 'SELECT' && input.value !== "") {
+              input.closest('.input-wrapper').classList.add('is-valid');
+          }
+      });
+
+      // 2. Active Section Highlighting
+      const sections = document.querySelectorAll('.form-section');
+      allInputs.forEach(input => {
+          input.addEventListener('focus', function() {
+              sections.forEach(s => s.classList.remove('active-section'));
+              this.closest('.form-section').classList.add('active-section');
+          });
+      });
+
+      // 3. Dynamic Progress Bar
+      const requiredInputs = document.querySelectorAll('.req-input');
+      const progressFill = document.getElementById('progress-fill');
+      const progressText = document.getElementById('progress-text');
+
+      function calculateProgress() {
+          let filled = 0;
+          requiredInputs.forEach(req => {
+              if(req.type === 'checkbox') {
+                  if(req.checked) filled++;
+              } else {
+                  if(req.value.trim() !== '') filled++;
+              }
+          });
+
+          const percentage = Math.round((filled / requiredInputs.length) * 100);
+          progressFill.style.width = percentage + '%';
+          progressText.innerText = percentage + '%';
+
+          if(percentage === 100) {
+              progressText.classList.remove('text-[#123524]');
+              progressText.classList.add('text-[#205139]');
+          } else {
+              progressText.classList.add('text-[#123524]');
+              progressText.classList.remove('text-[#205139]');
+          }
+      }
+
+      document.querySelectorAll('.premium-checkbox').forEach(cb => {
+          cb.addEventListener('change', calculateProgress);
+      });
+
+      calculateProgress();
+
+      // Form Submission to FormSubmit
+      const form = document.getElementById('enrollForm');
+      const container = document.getElementById('form-container');
+      const submitBtn = document.getElementById('submitBtn');
+      const successMsg = document.getElementById('success-message');
+
+      form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          if(!form.checkValidity()) {
+              submitBtn.classList.add('animate-pulse');
+              setTimeout(() => submitBtn.classList.remove('animate-pulse'), 1000);
+              return;
+          }
+
+          // Loading State
+          submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> <span class="ml-2">Processing...</span>`;
+          submitBtn.disabled = true;
+
+          // Gather form data
+          const formData = new FormData(form);
+
+          // Send email via FormSubmit AJAX (No WP plugins needed)
+          fetch("https://formsubmit.co/ajax/info@sakhenimaafrica.co.za", {
+              method: "POST",
+              headers: { 
+                  'Accept': 'application/json'
+              },
+              body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+              // Hide form, show success message
+              container.style.opacity = '0';
+              container.style.transform = 'scale(0.95)';
+              setTimeout(() => {
+                  container.style.display = 'none';
+                  successMsg.classList.remove('hidden');
+                  successMsg.setAttribute('data-aos', 'zoom-in');
+                  AOS.refresh();
+              }, 400);
+          })
+          .catch(error => {
+              console.log(error);
+              submitBtn.innerHTML = `<span>Error. Try Again</span> <span class="material-symbols-outlined">error</span>`;
+              submitBtn.disabled = false;
+              submitBtn.style.backgroundColor = "#ef4444"; // red
+          });
+      });
+  });
+</script>

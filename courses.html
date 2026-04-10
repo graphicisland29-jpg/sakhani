@@ -1,0 +1,1160 @@
+<!-- ======================================================= -->
+<!-- COPY EVERYTHING BELOW AND PASTE DIRECTLY INTO ELEMENTOR -->
+<!-- ======================================================= -->
+
+<!-- 1. FONTS & ICONS -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- 2. TAILWIND CSS & CONFIG -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    important: '.sakheni-courses-content',
+    corePlugins: { preflight: false },
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#205139",
+          "secondary": "#7b5900",
+          "background": "#fff8f2",
+          "surface": "#fff8f2",
+          "surface-container": "#faecd8",
+          "surface-container-low": "#fdf5e8",
+          "primary-container": "#123524",
+          "secondary-container": "#fcca66",
+        }
+      }
+    }
+  }
+</script>
+
+<!-- 3. SCOPED CSS RESET & CUSTOM STYLES -->
+<style>
+.elementor-widget-html { width: 100% !important; }
+.elementor-widget-html .elementor-widget-container { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+.sakheni-courses-content {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: #fff8f2;
+    color: #211b0f;
+    font-family: 'Work Sans', sans-serif;
+}
+@media (max-width: 100vw) {
+    .sakheni-courses-content { width: 100%; left: auto; right: auto; margin-left: 0; margin-right: 0; }
+}
+
+.sakheni-courses-content *, .sakheni-courses-content ::before, .sakheni-courses-content ::after {
+    box-sizing: inherit;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+.sakheni-courses-content h1, .sakheni-courses-content h2, .sakheni-courses-content h3, .sakheni-courses-content h4, .sakheni-courses-content p { margin: 0; padding: 0; }
+.sakheni-courses-content a { color: inherit; text-decoration: inherit; }
+
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+.animate-marquee { display: flex; animation: scroll 25s linear infinite; }
+
+/* Custom Scrollbar for Search */
+.search-input::-webkit-search-cancel-button { cursor: pointer; }
+
+html:not(.no-js) [data-aos^=fade][data-aos^=fade] { opacity: 1 !important; transform: none !important; }
+
+/* Accordion Animation */
+.faq-content {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.faq-item.active .faq-content {
+    max-height: 300px;
+    opacity: 1;
+}
+.faq-icon { transition: transform 0.3s ease; }
+.faq-item.active .faq-icon { transform: rotate(180deg); }
+
+/* Card Ribbon */
+.ribbon {
+    position: absolute;
+    top: 20px;
+    left: -35px;
+    background: #fcca66;
+    color: #123524;
+    padding: 6px 40px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: rotate(-45deg);
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+</style>
+
+<!-- 4. MAIN HTML CONTENT -->
+<div class="sakheni-courses-content">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[55vh] lg:min-h-[500px] flex flex-col justify-center overflow-hidden bg-[#123524] pt-24 pb-20 md:pb-28">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fcca66_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#205139] via-[#123524]/90 to-[#123524]"></div>
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#205139] rounded-full blur-[120px] opacity-40 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#fcca66] rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+        </div>
+
+        <div class="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-8 md:px-12 w-full text-center">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <span class="inline-block bg-[#fcca66] text-[#123524] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-sm rounded-sm">Skills Development and Training</span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#ffffff] mb-6 leading-[1.1] font-['Noto_Serif'] font-bold">
+                    Our Courses & Pricing.
+                </h1>
+                <p class="text-lg md:text-xl text-[#a5f3c6] font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+                    SETA and QCTO aligned programs designed to build real mastery. Find the right path to accelerate your artisan career.
+                </p>
+
+                <!-- NEW: Trust Indicators Bar -->
+                <div class="flex flex-wrap justify-center gap-6 md:gap-10 border-t border-white/10 pt-8 mt-4">
+                    <div class="flex items-center gap-2 text-white/80 text-sm font-medium">
+                        <span class="material-symbols-outlined text-[#fcca66]">verified</span> SETA & QCTO Aligned
+                    </div>
+                    <div class="flex items-center gap-2 text-white/80 text-sm font-medium">
+                        <span class="material-symbols-outlined text-[#fcca66]">engineering</span> 100% Practical Training
+                    </div>
+                    <div class="flex items-center gap-2 text-white/80 text-sm font-medium">
+                        <span class="material-symbols-outlined text-[#fcca66]">groups</span> Expert Instructors
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid Section -->
+    <section class="relative z-20 max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 -mt-8 mb-24">
+
+        <!-- NEW: Search & Interactive Category Filters -->
+        <div class="bg-white/90 backdrop-blur-xl border border-[#c1c8c1]/50 p-4 md:p-5 rounded-[32px] shadow-[0_20px_40px_rgba(0,0,0,0.08)] mb-12 max-w-5xl mx-auto relative z-30 flex flex-col md:flex-row gap-4 items-center justify-between" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Live Search Input -->
+            <div class="relative w-full md:w-1/3">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#7b5900] z-10">search</span>
+                <input type="text" id="course-search" placeholder="Search courses..." class="search-input w-full bg-[#fdf5e8] border border-[#fcca66]/50 text-[#123524] text-sm font-medium rounded-full py-3.5 pl-12 pr-4 focus:outline-none focus:border-[#fcca66] focus:ring-2 focus:ring-[#fcca66]/30 transition-all placeholder:text-[#7b5900]/60">
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-2 w-full md:w-auto">
+                <button class="filter-btn active px-5 py-2.5 rounded-full bg-[#fcca66] border border-[#fcca66] text-[#123524] font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md" data-filter="all">All</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full bg-transparent border border-transparent text-[#424943] hover:bg-[#fdf5e8] hover:text-[#7b5900] font-bold text-xs uppercase tracking-widest transition-all duration-300" data-filter="welding">Welding</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full bg-transparent border border-transparent text-[#424943] hover:bg-[#fdf5e8] hover:text-[#7b5900] font-bold text-xs uppercase tracking-widest transition-all duration-300" data-filter="construction">Construction</button>
+                <button class="filter-btn px-5 py-2.5 rounded-full bg-transparent border border-transparent text-[#424943] hover:bg-[#fdf5e8] hover:text-[#7b5900] font-bold text-xs uppercase tracking-widest transition-all duration-300" data-filter="skills">Skills</button>
+            </div>
+        </div>
+
+        <!-- No Results Message (Hidden by default) -->
+        <div id="no-results-msg" class="hidden text-center py-12 text-[#424943]">
+            <span class="material-symbols-outlined text-5xl mb-4 text-[#c1c8c1]">search_off</span>
+            <h3 class="text-xl font-bold font-['Noto_Serif'] mb-2">No courses found</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" id="courses-grid">
+
+            <!-- Course Card: Arc & Co2 Welding -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="welding" data-aos="fade-up" data-aos-delay="0">
+                <div class="ribbon shadow-md">Fast Track</div>
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f9e5e95b01e30e750b8757989428d5eb87dce483.jpg" alt="Arc & Co2 Welding" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R8 850.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">bolt</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 2 weeks
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Arc & Co2 Welding</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">ARC Welding, Gas cutting, Grinding, Co2 Welding. A great foundational short course.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">02</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">15</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-243063</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Shielded-Metal-Arc-Fillet-Welder_Curriculum.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Arc Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Welding Co2 & Arc -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="welding" data-aos="fade-up" data-aos-delay="100">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0a3435f01335fb5998b987f068d6a38a30ba5770.jpg" alt="Welding Co2 & Arc" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R6 850.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">bolt</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 15 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Welding Co2 & Arc</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">Welding Co2, & Arc Welding targeted training.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">02</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">8</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-243066</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Shielded-Metal-Arc-Fillet-Welder_Curriculum.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Arc Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: TIG Welding -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="welding" data-aos="fade-up" data-aos-delay="200">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/70f8fa4fb4ddb0294c34603e135b4107fbec17e7.jpg" alt="TIG Welding" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R4 200.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">precision_manufacturing</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 10 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">TIG Welding</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">Specialized TIG welding training for precision work.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">02</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">15</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-243068</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <a href="https://sakhenimaafrica.co.za/enroll-now" class="mt-8 block w-full py-4 text-center rounded-xl font-bold text-sm uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                            Enroll Now
+                        </a>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Arc Welding -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="welding" data-aos="fade-up" data-aos-delay="0">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f35a919ba0e560f543740d347da27c3fcc7075d5.jpg" alt="Arc Welding" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R4 200.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">bolt</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 10 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Arc Welding</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">Focused Arc welding practical course.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">02</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">15</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-243068</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Shielded-Metal-Arc-Fillet-Welder_Curriculum.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Trade Assessment -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="skills" data-aos="fade-up" data-aos-delay="100">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c0878b80255b0a75826aeed3f570da7a838dbbd5.jpg" alt="Trade Assessment" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R2 500.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">assignment_turned_in</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 1 Day
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Trade Assessment</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">Official assessment and evaluation of existing trade skills.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">02</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">10</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-243072</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <a href="https://sakhenimaafrica.co.za/enroll-now" class="mt-8 block w-full py-4 text-center rounded-xl font-bold text-sm uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                            Enroll Now
+                        </a>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Welding Combo Masterclass -->
+            <div class="course-card rounded-[24px] border bg-[#123524] text-white border-[#fcca66]/50 shadow-[0_20px_50px_rgba(252,202,102,0.2)] hover:shadow-[0_25px_60px_rgba(252,202,102,0.4)] overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="welding" data-aos="fade-up" data-aos-delay="200">
+                <div class="ribbon shadow-md">Most Popular</div>
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-white/10">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/fec83799207b84d4509adbe78625b3b5b72e82b5.jpg" alt="Welding Combo Masterclass" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R25 000.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">build_circle</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 3 Months
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#fcca66] font-['Noto_Serif'] mb-3 leading-snug">Welding Combo Masterclass</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#a5f3c6] mb-6 opacity-90">Arc welding (Co2), TIG Welding (Argon), Engineering Power Tools, Engineering Measuring Tools, Oxy Fuel Gas cutting.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-white/10">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">NQF Level</span>
+                                    <span class="block font-bold text-white">02</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">Credits</span>
+                                    <span class="block font-bold text-white">40</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">Code</span>
+                                    <span class="block font-bold text-white text-xs mt-1">SP-191208</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fcca66] text-[#123524] hover:bg-white hover:text-[#123524]">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Doc-Workshop-Tool-Assistant.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#fcca66]/50 text-[#fcca66] hover:bg-[#fcca66] hover:text-[#123524]">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Tool Guide
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Coded Welding -->
+            <div class="course-card rounded-[24px] border bg-[#123524] text-white border-[#fcca66]/50 shadow-[0_20px_50px_rgba(252,202,102,0.2)] hover:shadow-[0_25px_60px_rgba(252,202,102,0.4)] overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="welding" data-aos="fade-up" data-aos-delay="0">
+                <div class="ribbon shadow-md">Elite Tier</div>
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-white/10">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/956fa3fe62f03573d3d365e6837098fd8003107a.jpg" alt="Coded Welding" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R50 000.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">workspace_premium</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 6 Months
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#fcca66] font-['Noto_Serif'] mb-3 leading-snug">Coded Welding</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#a5f3c6] mb-6 opacity-90">Advanced coded welding certification for top-tier industrial placement.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-white/10">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">NQF Level</span>
+                                    <span class="block font-bold text-white">04</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">Credits</span>
+                                    <span class="block font-bold text-white">96</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-white/60 mb-1">Code</span>
+                                    <span class="block font-bold text-white text-xs mt-1">SP-210402</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fcca66] text-[#123524] hover:bg-white hover:text-[#123524]">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Colded-Welder.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#fcca66]/50 text-[#fcca66] hover:bg-[#fcca66] hover:text-[#123524]">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Bricklayer's Assistant -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="construction" data-aos="fade-up" data-aos-delay="100">
+                <div class="ribbon shadow-md">High Demand</div>
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/293cdb4f763f3339ae0622a667102b5448509463.jpg" alt="Bricklayer's Assistant" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R7 550.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">foundation</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 55 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Bricklayer's Assistant</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">A practical entry-level construction course for learners who want to work under the supervision of a skilled builder or artisan.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">01</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">45</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-191217</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/Bricklayers-Assistant.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Renewable Energy Assistant -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="construction" data-aos="fade-up" data-aos-delay="200">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6fabcc3d7b8c7c03227f973e74fba0e1a6e12aae.jpg" alt="Renewable Energy Assistant" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R12 000.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">solar_power</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 30 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Renewable Energy Assistant</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">A practical renewable energy support course. Prepares learners to identify, select, use, and care for tools and testing instruments used in renewable energy installation and maintenance.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">04</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">24</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-210602</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/Renewable-Energy-Workshop-Assistant.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Plumbing Hand -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="construction" data-aos="fade-up" data-aos-delay="0">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/dd2c6cf5c18012c0e5bd203185fd5e9908200204.jpg" alt="Plumbing Hand" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R14 500.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">plumbing</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 61 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Plumbing Hand</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">Prepares learners to support plumbing work under the supervision of a qualified plumber. Covers the installation, repair, and maintenance of water pipes.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">03</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">49</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-210403</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/Plumbing-Hand.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Workplace Essential Skills -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="skills" data-aos="fade-up" data-aos-delay="100">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1a0635de0d3384262b873f308cb52db1d7ba3401.jpg" alt="Workplace Essential Skills" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R5 250.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">psychology</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 25 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Workplace Essential Skills</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">A work-readiness course designed for learners entering different industries. Helps learners understand the workplace environment, employer responsibilities, and interviews.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">04</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">20</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-211009</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Workplace-Essential-Skills.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card: Assistant Handyperson -->
+            <div class="course-card rounded-[24px] border bg-white text-[#211b0f] border-[#c1c8c1]/30 shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#7b5900]/30 overflow-hidden flex flex-col transition-all duration-500 group transform hover:-translate-y-2 relative" data-category="construction" data-aos="fade-up" data-aos-delay="200">
+                
+
+                <!-- Image Header Area -->
+                <div class="h-56 relative overflow-hidden group-hover:h-64 transition-all duration-500 border-b border-[#c1c8c1]/20">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/557253a0a198088ac6d6baed11844fc93ae46d16.jpg" alt="Assistant Handyperson" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#123524] via-black/20 to-transparent opacity-90"></div>
+
+                    <!-- Floating Price Tag -->
+                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/20 shadow-lg">
+                        R18 000.00
+                    </div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute bottom-4 left-6 w-14 h-14 bg-[#fcca66] rounded-2xl flex items-center justify-center text-[#123524] shadow-xl group-hover:scale-110 transition-transform duration-500 border-2 border-[#123524] z-10">
+                        <span class="material-symbols-outlined text-[28px]">handyman</span>
+                    </div>
+
+                    <!-- Duration Badge -->
+                    <div class="absolute bottom-6 right-6">
+                        <span class="bg-[#163625]/90 backdrop-blur-sm text-[#a5f3c6] text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full border border-white/10">
+                            <span class="material-symbols-outlined text-[10px] align-middle mr-1">schedule</span> 103 Days
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10 bg-inherit">
+                    <h3 class="course-title text-xl font-bold text-[#205139] font-['Noto_Serif'] mb-3 leading-snug">Assistant Handyperson</h3>
+                    <p class="course-desc text-sm leading-relaxed text-[#424943] mb-6 opacity-90">A broad practical maintenance course. Covers carpentry, plumbing, painting, minor electrical work, flooring, and window-related repairs.</p>
+
+                    <div class="mt-auto">
+                        <div class="pt-6 border-t border-[#c1c8c1]/20">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">NQF Level</span>
+                                    <span class="block font-bold text-[#211b0f]">03</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Credits</span>
+                                    <span class="block font-bold text-[#211b0f]">82</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-widest font-bold text-[#7b5900] mb-1">Code</span>
+                                    <span class="block font-bold text-[#211b0f] text-xs mt-1">SP-210501</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="https://sakhenimaafrica.co.za/enroll-now" class="flex-[3] py-3 text-center rounded-xl font-bold text-[11px] lg:text-xs uppercase tracking-widest transition-all duration-300 bg-[#fdf5e8] text-[#7b5900] hover:bg-[#205139] hover:text-white border border-[#c1c8c1]/30 group-hover:border-transparent">
+                                Enroll Now
+                            </a>
+                            <a href="https://sakhenimaafrica.co.za/wp-content/uploads/2026/04/SP-Asssistant-Handyperson.pdf" target="_blank" rel="noopener noreferrer" class="flex-[2] py-3 px-2 text-center rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 border border-[#c1c8c1]/60 text-[#424943] hover:bg-[#205139] hover:border-[#205139] hover:text-white">
+                                <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span> Curriculum
+                            </a>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Common Questions (Accordion) -->
+    <section class="py-20 bg-white relative z-10">
+        <div class="max-w-[800px] mx-auto px-5 sm:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl text-[#123524] font-['Noto_Serif'] font-bold mb-10">Common Questions</h2>
+
+            <div class="space-y-4 text-left">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-[#c1c8c1]/40 rounded-2xl bg-[#fff8f2] overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center p-6 bg-white hover:bg-[#fdf5e8] transition-colors">
+                        <h4 class="font-bold text-[#205139] text-base md:text-lg m-0">What are the entry requirements?</h4>
+                        <span class="material-symbols-outlined text-[#7b5900] faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-content bg-[#fff8f2] px-6">
+                        <p class="text-[#424943] text-sm pb-6 pt-2 leading-relaxed">Most of our short courses only require basic literacy and physical fitness to handle workshop tools. However, advanced programs like Coded Welding require prior NQF levels or a passing grade in our Trade Assessment.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-[#c1c8c1]/40 rounded-2xl bg-[#fff8f2] overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center p-6 bg-white hover:bg-[#fdf5e8] transition-colors">
+                        <h4 class="font-bold text-[#205139] text-base md:text-lg m-0">Are the courses practical or theoretical?</h4>
+                        <span class="material-symbols-outlined text-[#7b5900] faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-content bg-[#fff8f2] px-6">
+                        <p class="text-[#424943] text-sm pb-6 pt-2 leading-relaxed">Our training is 100% focused on hands-on capability. While there is necessary safety and theory covered in the classroom, the vast majority of your time is spent in the workshop or on active building sites.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-[#c1c8c1]/40 rounded-2xl bg-[#fff8f2] overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center p-6 bg-white hover:bg-[#fdf5e8] transition-colors">
+                        <h4 class="font-bold text-[#205139] text-base md:text-lg m-0">Do you offer payment plans?</h4>
+                        <span class="material-symbols-outlined text-[#7b5900] faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-content bg-[#fff8f2] px-6">
+                        <p class="text-[#424943] text-sm pb-6 pt-2 leading-relaxed">Yes, we understand that funding education can be difficult. Contact our administration office to discuss flexible payment schedules for our longer Masterclass and Certification courses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Which Course is Right For You? -->
+    <section class="py-24 bg-[#123524] relative overflow-hidden border-t border-[#fcca66]/20">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fcca66_1px,transparent_1px)] [background-size:30px_30px]"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#205139] rounded-full blur-[120px] opacity-40"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#fcca66] rounded-full blur-[150px] opacity-10"></div>
+
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block bg-[#163625] text-[#fcca66] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-sm border border-[#fcca66]/20 rounded-sm">Guidance</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl text-white font-['Noto_Serif'] font-bold mb-6">Which course is right for you?</h2>
+                <p class="text-[#a5f3c6] text-lg max-w-2xl mx-auto leading-relaxed">Not sure where to start? We break down the best paths based on your career goals and desired industry.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-[#163625]/80 backdrop-blur-sm border border-white/5 p-8 rounded-[24px] hover:border-[#fcca66]/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-12 h-12 bg-[#122e1f] rounded-full flex items-center justify-center text-[#fcca66] mb-6"><span class="material-symbols-outlined">bolt</span></div>
+                    <h4 class="text-white font-bold text-lg font-['Noto_Serif'] mb-3">Want a short welding course?</h4>
+                    <p class="text-[#84a391] text-sm leading-relaxed">Start with <strong class="text-white">Arc Welding</strong>, <strong class="text-white">TIG Welding</strong>, <strong class="text-white">CO2 & Arc Welding</strong>.</p>
+                </div>
+                <div class="bg-[#163625]/80 backdrop-blur-sm border border-white/5 p-8 rounded-[24px] hover:border-[#fcca66]/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-[#122e1f] rounded-full flex items-center justify-center text-[#fcca66] mb-6"><span class="material-symbols-outlined">workspace_premium</span></div>
+                    <h4 class="text-white font-bold text-lg font-['Noto_Serif'] mb-3">Want a fuller welding path?</h4>
+                    <p class="text-[#84a391] text-sm leading-relaxed">Choose the comprehensive <strong class="text-white">Welding Combo</strong> or our advanced <strong class="text-white">Coded Welding</strong> program.</p>
+                </div>
+                <div class="bg-[#163625]/80 backdrop-blur-sm border border-white/5 p-8 rounded-[24px] hover:border-[#fcca66]/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-[#122e1f] rounded-full flex items-center justify-center text-[#fcca66] mb-6"><span class="material-symbols-outlined">foundation</span></div>
+                    <h4 class="text-white font-bold text-lg font-['Noto_Serif'] mb-3">Want to enter construction?</h4>
+                    <p class="text-[#84a391] text-sm leading-relaxed">The <strong class="text-white">Bricklayer’s Assistant</strong> course is a strong, practical starting point.</p>
+                </div>
+                <div class="bg-[#163625]/80 backdrop-blur-sm border border-white/5 p-8 rounded-[24px] hover:border-[#fcca66]/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-[#122e1f] rounded-full flex items-center justify-center text-[#fcca66] mb-6"><span class="material-symbols-outlined">handyman</span></div>
+                    <h4 class="text-white font-bold text-lg font-['Noto_Serif'] mb-3">Want practical repair skills?</h4>
+                    <p class="text-[#84a391] text-sm leading-relaxed">For carpentry, painting, and electrical, <strong class="text-white">Assistant Handyperson</strong> is the best fit.</p>
+                </div>
+                <div class="bg-[#163625]/80 backdrop-blur-sm border border-white/5 p-8 rounded-[24px] hover:border-[#fcca66]/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 bg-[#122e1f] rounded-full flex items-center justify-center text-[#fcca66] mb-6"><span class="material-symbols-outlined">plumbing</span></div>
+                    <h4 class="text-white font-bold text-lg font-['Noto_Serif'] mb-3">Want plumbing support skills?</h4>
+                    <p class="text-[#84a391] text-sm leading-relaxed">Choose <strong class="text-white">Plumbing Hand</strong> to learn the repair of modern water systems.</p>
+                </div>
+                <div class="bg-[#163625]/80 backdrop-blur-sm border border-white/5 p-8 rounded-[24px] hover:border-[#fcca66]/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 bg-[#122e1f] rounded-full flex items-center justify-center text-[#fcca66] mb-6"><span class="material-symbols-outlined">psychology</span></div>
+                    <h4 class="text-white font-bold text-lg font-['Noto_Serif'] mb-3">Want to improve employability?</h4>
+                    <p class="text-[#84a391] text-sm leading-relaxed">For general job readiness, <strong class="text-white">Workplace Essential Skills</strong> is the right place to begin.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center" data-aos="fade-up">
+                <a href="https://sakhenimaafrica.co.za/contact-us" class="inline-flex items-center justify-center gap-2 bg-[#fcca66] text-[#271900] px-10 py-4 font-bold uppercase tracking-widest text-sm rounded-full hover:shadow-[0_15px_30px_rgba(252,202,102,0.5)] hover:-translate-y-1 transition-all duration-300">
+                    Discuss Your Options With Us
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Scrolling Marquee Banner -->
+    <div class="bg-[#fcca66] py-5 overflow-hidden relative z-20 flex w-full whitespace-nowrap shadow-[0_10px_30px_rgba(252,202,102,0.15)]">
+        <div class="animate-marquee flex items-center">
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">bolt</span> ARC & CO2 Welding</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">plumbing</span> Plumbing Mastery</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">foundation</span> Bricklaying</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">workspace_premium</span> Industry Ready</span>
+        </div>
+        <div class="animate-marquee flex items-center" aria-hidden="true">
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">bolt</span> ARC & CO2 Welding</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">plumbing</span> Plumbing Mastery</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">foundation</span> Bricklaying</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">workspace_premium</span> Industry Ready</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- 5. SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // 1. Init Animations
+      setTimeout(function() {
+          if(typeof AOS !== 'undefined') {
+            AOS.init({ duration: 900, easing: 'ease-out', once: true, offset: 50 });
+          }
+      }, 300);
+
+      // 2. Search & Filter Logic
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const courseCards = document.querySelectorAll('.course-card');
+      const searchInput = document.getElementById('course-search');
+      const noResultsMsg = document.getElementById('no-results-msg');
+
+      let currentFilter = 'all';
+
+      function applyFilters() {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          let visibleCount = 0;
+
+          courseCards.forEach(card => {
+              const category = card.getAttribute('data-category');
+              const title = card.querySelector('.course-title').innerText.toLowerCase();
+              const desc = card.querySelector('.course-desc').innerText.toLowerCase();
+
+              const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+              const matchesCategory = currentFilter === 'all' || category === currentFilter;
+
+              if (matchesSearch && matchesCategory) {
+                  card.style.display = 'flex';
+                  setTimeout(() => {
+                      card.style.opacity = '1';
+                      card.style.transform = 'scale(1) translateY(0)';
+                  }, 50);
+                  visibleCount++;
+              } else {
+                  card.style.opacity = '0';
+                  card.style.transform = 'scale(0.95)';
+                  setTimeout(() => {
+                      card.style.display = 'none';
+                  }, 300); 
+              }
+          });
+
+          // Show/hide no results message
+          setTimeout(() => {
+              noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+          }, 350);
+      }
+
+      // Event Listeners for Filters
+      filterBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+              // UI update
+              filterBtns.forEach(b => {
+                  b.classList.remove('bg-[#fcca66]', 'border-[#fcca66]', 'text-[#123524]', 'shadow-md');
+                  b.classList.add('bg-transparent', 'border-transparent', 'text-[#424943]');
+              });
+              e.target.classList.add('bg-[#fcca66]', 'border-[#fcca66]', 'text-[#123524]', 'shadow-md');
+              e.target.classList.remove('bg-transparent', 'border-transparent', 'text-[#424943]');
+
+              // Set active filter & apply
+              currentFilter = e.target.getAttribute('data-filter');
+              applyFilters();
+          });
+      });
+
+      // Event Listener for Search
+      if(searchInput) {
+          searchInput.addEventListener('input', applyFilters);
+      }
+  });
+
+  // 3. FAQ Accordion Logic
+  function toggleFaq(element) {
+      // Close other open FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+          if (item !== element && item.classList.contains('active')) {
+              item.classList.remove('active');
+          }
+      });
+      // Toggle clicked FAQ
+      element.classList.toggle('active');
+  }
+</script>

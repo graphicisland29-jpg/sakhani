@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Work Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+    </style>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-background text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
+
+<!-- ======================================================= -->
+<!-- COPY FROM HERE DOWN AND PASTE INTO ELEMENTOR HTML WIDGET -->
+
+<!-- REQUIRED FONTS, ICONS, & CSS (THIS FIXES THE MESS) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- ======================================================= -->
+<div class="sakheni-main-content">
+<style>
+/* SCOPED RESET: Forces Elementor/Astra to respect this layout */
+.sakheni-main-content {
+    box-sizing: border-box;
+}
+.sakheni-main-content *, .sakheni-main-content ::before, .sakheni-main-content ::after {
+    box-sizing: inherit;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+.sakheni-main-content h1, .sakheni-main-content h2, .sakheni-main-content h3, .sakheni-main-content h4, .sakheni-main-content p {
+    margin: 0;
+}
+.sakheni-main-content a {
+    color: inherit;
+    text-decoration: inherit;
+}
+.sakheni-main-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.sakheni-main-content button {
+    background-color: transparent;
+    background-image: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+</style>
+
+
+<!-- Tailwind Core Scripts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        important: true,
+        corePlugins: { preflight: false },
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#123524",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "on-tertiary-fixed-variant": "#7c2d14",
+                    "secondary": "#7b5900",
+                    "tertiary-fixed-dim": "#ffb59f",
+                    "background": "#fff8f2",
+                    "on-primary": "#ffffff",
+                    "outline": "#727973",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#fcca66",
+                    "secondary-fixed-dim": "#f0bf5c",
+                    "surface-container": "#faecd8",
+                    "surface-bright": "#fff8f2",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fff8f2",
+                    "on-background": "#211b0f",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c1c8c1",
+                    "inverse-surface": "#372f22",
+                    "tertiary-container": "#5c1501",
+                    "tertiary-fixed": "#ffdbd1",
+                    "secondary-fixed": "#ffdea4",
+                    "inverse-on-surface": "#fdefdb",
+                    "surface-container-high": "#f4e6d3",
+                    "on-primary-fixed-variant": "#2b4e3b",
+                    "primary": "#205139",
+                    "on-surface-variant": "#424943",
+                    "on-surface": "#211b0f",
+                    "surface-container-highest": "#eee1ce",
+                    "tertiary": "#77331c",
+                    "on-secondary-container": "#271900",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-variant": "#5c1501",
+                    "primary-fixed-dim": "#89d6ab",
+                    "on-primary-container": "#a5f3c6",
+                    "on-primary-fixed": "#002112",
+                    "surface-dim": "#e2d5c2",
+                    "surface-container-low": "#fdf5e8",
+                    "secondary-fixed-variant": "#5d4200",
+                    "on-tertiary-container": "#320b00",
+                    "on-tertiary-fixed": "#320b00",
+                    "primary-fixed-variant": "#2b4e3b",
+                    "primary-fixed": "#a5f3c6",
+                    "scrim": "#000000",
+            }
+          }
+        }
+      }
+    </script>
+
+<!-- TopNavBar Component -->
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 grayscale-[0.5]" data-alt="Professional welder in protective gear working with sparks flying in a dark industrial setting with warm amber lighting" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501993/WhatsApp-Image-2026-04-01-at-8.49.23-PM-2_nik7un.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-12 w-full">
+<div class="max-w-3xl">
+<span class="inline-block bg-tertiary-container text-secondary-fixed px-4 py-1 text-xs font-label uppercase tracking-[0.2em] mb-6">Established Excellence</span>
+<h1 class="text-5xl md:text-7xl text-on-primary mb-8 leading-[1.1] font-headline">Learn a Trade.<br/>Get Certified.<br/>Find Work.</h1>
+<p class="text-xl md:text-2xl text-on-primary-container font-body font-light mb-10 max-w-xl leading-relaxed">
+                    Hands-on welding, construction, and trade courses in Nigel. QCTO-accredited programs designed for the modern workforce.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<a href="https://sakhenimaafrica.co.za/courses" target="_blank" rel="noopener noreferrer" class="bg-secondary-container text-on-secondary-container px-10 py-4 font-semibold text-lg hover:bg-secondary hover:text-on-secondary transition-all duration-300 flex items-center justify-center gap-2 rounded-sm hover:shadow-[0_10px_20px_rgba(252,202,102,0.3)] hover:-translate-y-1">
+                        View our courses
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a href="https://sakhenimaafrica.co.za/contact-us" target="_blank" rel="noopener noreferrer" class="border border-white/30 text-white px-10 py-4 font-semibold text-lg hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center justify-center gap-2 rounded-sm backdrop-blur-sm">
+                        Contact Admissions
+                        <span class="material-symbols-outlined text-[20px]">mail</span>
+                    </a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Trust Stats Banner (Overlaps Hero) -->
+<div class="relative z-20 max-w-[1100px] mx-auto px-6 md:px-12 -mt-12 sm:-mt-24 mb-16">
+    <div class="bg-gradient-to-r from-[#123524] to-[#1a4a32] rounded-[24px] shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-white/10 p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10 text-center backdrop-blur-xl">
+        <div data-aos="fade-up" data-aos-delay="0" class="py-4 md:py-0">
+            <div class="text-4xl md:text-5xl font-bold text-[#fcca66] font-['Noto_Serif'] mb-2">90%</div>
+            <div class="text-[11px] md:text-[12px] font-bold text-white/80 uppercase tracking-widest font-['Work_Sans']">Employment Rate</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100" class="py-4 md:py-0">
+            <div class="text-4xl md:text-5xl font-bold text-[#fcca66] font-['Noto_Serif'] mb-2">4+</div>
+            <div class="text-[11px] md:text-[12px] font-bold text-white/80 uppercase tracking-widest font-['Work_Sans']">Accreditations</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="py-4 md:py-0">
+            <div class="text-4xl md:text-5xl font-bold text-[#fcca66] font-['Noto_Serif'] mb-2">80%</div>
+            <div class="text-[11px] md:text-[12px] font-bold text-white/80 uppercase tracking-widest font-['Work_Sans']">Practical Training</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300" class="py-4 md:py-0">
+            <div class="text-4xl md:text-5xl font-bold text-[#fcca66] font-['Noto_Serif'] mb-2">15+</div>
+            <div class="text-[11px] md:text-[12px] font-bold text-white/80 uppercase tracking-widest font-['Work_Sans']">Years Experience</div>
+        </div>
+    </div>
+</div>
+<!-- Overview Section -->
+<section class="py-24 bg-surface relative overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+<div data-aos="fade-right" class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-7 relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-surface-container opacity-50 -z-10"></div>
+<img class="w-full h-[500px] object-cover shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-[24px] border border-outline-variant/30" data-alt="Students in a natural welding workshop" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502008/WhatsApp-Image-2026-04-01-at-9.12.37-AM-1_ppide1.jpg"/>
+<div class="absolute -bottom-8 -right-8 bg-primary-container p-10 text-on-primary max-w-xs hidden lg:block rounded-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] border border-white/10">
+<p class="font-headline text-2xl mb-2">15+ Years</p>
+<p class="text-sm font-body text-on-primary-container">Building the future of African industry through specialized technical education and hands-on training.</p>
+</div>
+</div>
+<div class="md:col-span-5">
+<h2 data-aos="fade-up" class="text-4xl md:text-5xl text-primary mb-8 leading-tight">Crafting the Next Generation of Industrial Leaders</h2>
+<div class="w-20 h-1 bg-secondary mb-8"></div>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-6 font-body">
+                        Sakheni Ma Africa Skills Development &amp; Training is more than an institution; it is a bridge to professional independence. Based in Nigel, we specialize in high-demand technical trades that power our economy.
+                    </p>
+<p class="text-on-surface-variant text-lg leading-relaxed font-body">
+                        Our curriculum combines ancestral work ethic with modern technological standards, ensuring every graduate leaves not just with a certificate, but with mastery.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Table -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 data-aos="fade-up" class="text-4xl md:text-5xl mb-6 font-bold text-primary leading-tight py-2">Core Trades &amp; Programs</h2>
+<p class="text-on-surface-variant max-w-xl text-lg leading-relaxed">Fully accredited vocational training designed to meet the immediate needs of the manufacturing and construction sectors.</p>
+</div>
+<div class="flex gap-4">
+<span class="text-xs font-label uppercase tracking-widest text-secondary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Enrollment Open
+                    </span>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-10">
+
+    <div data-aos="fade-up" data-aos-delay="0" class="group flex flex-col bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-2xl hover:border-secondary transition-all duration-500 overflow-hidden relative">
+        <div class="relative w-full h-64 sm:h-72 overflow-hidden">
+            <img src="https://images.pexels.com/photos/15209789/pexels-photo-15209789.jpeg" class="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.08]" alt="Arc Welding">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <span class="bg-[#fcca66] px-3 py-1 text-[#123524] font-bold text-xs uppercase tracking-widest rounded-sm shadow-sm">Level 3</span>
+            </div>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 relative z-10 bg-surface">
+            <h3 class="text-2xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors duration-300">Arc Welding</h3>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-8">
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">verified</span>
+                    <span>QCTO / merSETA</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">schedule</span>
+                    <span>12 Weeks</span>
+                </div>
+            </div>
+
+            <div class="mt-auto">
+                <a href="https://sakhenimaafrica.co.za/courses" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-transparent border-2 border-secondary text-secondary font-bold uppercase tracking-widest text-sm rounded-full overflow-hidden relative z-10 before:absolute before:inset-0 before:-z-10 before:bg-secondary before:translate-y-[100%] hover:before:translate-y-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[#123524] hover:shadow-[0_8px_20px_rgba(252,202,102,0.3)] transition-all duration-300 group/btn">
+                    <span>View Course</span>
+                    <span class="material-symbols-outlined text-[18px] transform group-hover/btn:translate-x-1 transition-transform duration-300">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="50" class="group flex flex-col bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-2xl hover:border-secondary transition-all duration-500 overflow-hidden relative">
+        <div class="relative w-full h-64 sm:h-72 overflow-hidden">
+            <img src="https://images.pexels.com/photos/27354189/pexels-photo-27354189.jpeg" class="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.08]" alt="TIG Welding (Argon)">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <span class="bg-[#fcca66] px-3 py-1 text-[#123524] font-bold text-xs uppercase tracking-widest rounded-sm shadow-sm">Level 4</span>
+            </div>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 relative z-10 bg-surface">
+            <h3 class="text-2xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors duration-300">TIG Welding (Argon)</h3>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-8">
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">verified</span>
+                    <span>QCTO / merSETA</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">schedule</span>
+                    <span>10 Weeks</span>
+                </div>
+            </div>
+
+            <div class="mt-auto">
+                <a href="https://sakhenimaafrica.co.za/courses" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-transparent border-2 border-secondary text-secondary font-bold uppercase tracking-widest text-sm rounded-full overflow-hidden relative z-10 before:absolute before:inset-0 before:-z-10 before:bg-secondary before:translate-y-[100%] hover:before:translate-y-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[#123524] hover:shadow-[0_8px_20px_rgba(252,202,102,0.3)] transition-all duration-300 group/btn">
+                    <span>View Course</span>
+                    <span class="material-symbols-outlined text-[18px] transform group-hover/btn:translate-x-1 transition-transform duration-300">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100" class="group flex flex-col bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-2xl hover:border-secondary transition-all duration-500 overflow-hidden relative">
+        <div class="relative w-full h-64 sm:h-72 overflow-hidden">
+            <img src="https://images.pexels.com/photos/16442684/pexels-photo-16442684.jpeg" class="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.08]" alt="Plumbing & Sanitation">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <span class="bg-[#fcca66] px-3 py-1 text-[#123524] font-bold text-xs uppercase tracking-widest rounded-sm shadow-sm">Level 4</span>
+            </div>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 relative z-10 bg-surface">
+            <h3 class="text-2xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors duration-300">Plumbing & Sanitation</h3>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-8">
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">verified</span>
+                    <span>CETA Certified</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">schedule</span>
+                    <span>24 Weeks</span>
+                </div>
+            </div>
+
+            <div class="mt-auto">
+                <a href="https://sakhenimaafrica.co.za/courses" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-transparent border-2 border-secondary text-secondary font-bold uppercase tracking-widest text-sm rounded-full overflow-hidden relative z-10 before:absolute before:inset-0 before:-z-10 before:bg-secondary before:translate-y-[100%] hover:before:translate-y-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[#123524] hover:shadow-[0_8px_20px_rgba(252,202,102,0.3)] transition-all duration-300 group/btn">
+                    <span>View Course</span>
+                    <span class="material-symbols-outlined text-[18px] transform group-hover/btn:translate-x-1 transition-transform duration-300">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="150" class="group flex flex-col bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-2xl hover:border-secondary transition-all duration-500 overflow-hidden relative">
+        <div class="relative w-full h-64 sm:h-72 overflow-hidden">
+            <img src="https://images.pexels.com/photos/34526423/pexels-photo-34526423.jpeg" class="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.08]" alt="Industrial Electrical">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <span class="bg-[#fcca66] px-3 py-1 text-[#123524] font-bold text-xs uppercase tracking-widest rounded-sm shadow-sm">Level 4</span>
+            </div>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 relative z-10 bg-surface">
+            <h3 class="text-2xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors duration-300">Industrial Electrical</h3>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-8">
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">verified</span>
+                    <span>CHIETA Accredited</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-on-surface-variant font-medium">
+                    <span class="material-symbols-outlined text-[22px] text-secondary">schedule</span>
+                    <span>18 Weeks</span>
+                </div>
+            </div>
+
+            <div class="mt-auto">
+                <a href="https://sakhenimaafrica.co.za/courses" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-transparent border-2 border-secondary text-secondary font-bold uppercase tracking-widest text-sm rounded-full overflow-hidden relative z-10 before:absolute before:inset-0 before:-z-10 before:bg-secondary before:translate-y-[100%] hover:before:translate-y-0 before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[#123524] hover:shadow-[0_8px_20px_rgba(252,202,102,0.3)] transition-all duration-300 group/btn">
+                    <span>View Course</span>
+                    <span class="material-symbols-outlined text-[18px] transform group-hover/btn:translate-x-1 transition-transform duration-300">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+<!-- Why Us -->
+
+<!-- What We Stand For Section -->
+<section class="py-24 bg-[#061b10] relative overflow-hidden">
+    <div class="max-w-[1100px] mx-auto px-6 md:px-12">
+        <div class="text-center mb-16 flex flex-col items-center">
+            <h2 data-aos="fade-up" class="text-4xl md:text-[40px] mb-4 font-medium text-[#f4f7f5] font-['Noto_Serif'] tracking-wide">What We Stand For</h2>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-[#7c9688] max-w-xl text-[15px] font-['Work_Sans'] tracking-wide">Our commitment to excellence in every aspect of training.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div data-aos="fade-up" data-aos-delay="150" class="bg-[#122e1f] border border-white/[0.03] p-10 rounded-sm group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:border-[#d4993a]/30 hover:bg-[#163625] transition-all duration-500 cursor-default">
+                <div class="mb-6 text-[#d4993a] group-hover:scale-110 group-hover:text-[#fcca66] transition-all duration-500 origin-left">
+                    <span class="material-symbols-outlined text-[32px] font-light">workspace_premium</span>
+                </div>
+                <h3 class="text-[20px] font-semibold text-[#f4f7f5] mb-4 font-['Noto_Serif'] tracking-wide">Proven Certificates</h3>
+                <p class="text-[#7c9688] leading-[1.8] text-[14px] font-['Work_Sans'] group-hover:text-[#91ab9d] transition-colors duration-500">
+                    Our qualifications are recognized by leading industry bodies, ensuring your certification carries real weight in the marketplace.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div data-aos="fade-up" data-aos-delay="250" class="bg-[#122e1f] border border-white/[0.03] p-10 rounded-sm group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:border-[#d4993a]/30 hover:bg-[#163625] transition-all duration-500 cursor-default">
+                <div class="mb-6 text-[#d4993a] group-hover:scale-110 group-hover:text-[#fcca66] transition-all duration-500 origin-left">
+                    <span class="material-symbols-outlined text-[32px] font-light">payments</span>
+                </div>
+                <h3 class="text-[20px] font-semibold text-[#f4f7f5] mb-4 font-['Noto_Serif'] tracking-wide">Affordable Training</h3>
+                <p class="text-[#7c9688] leading-[1.8] text-[14px] font-['Work_Sans'] group-hover:text-[#91ab9d] transition-colors duration-500">
+                    We believe cost should never be a barrier to skill. Our pricing models are designed for the South African reality.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div data-aos="fade-up" data-aos-delay="350" class="bg-[#122e1f] border border-white/[0.03] p-10 rounded-sm group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:border-[#d4993a]/30 hover:bg-[#163625] transition-all duration-500 cursor-default">
+                <div class="mb-6 text-[#d4993a] group-hover:scale-110 group-hover:text-[#fcca66] transition-all duration-500 origin-left">
+                    <span class="material-symbols-outlined text-[32px] font-light">engineering</span>
+                </div>
+                <h3 class="text-[20px] font-semibold text-[#f4f7f5] mb-4 font-['Noto_Serif'] tracking-wide">Practical Learning</h3>
+                <p class="text-[#7c9688] leading-[1.8] text-[14px] font-['Work_Sans'] group-hover:text-[#91ab9d] transition-colors duration-500">
+                    We focus on 80% practical hand-on experience, because skill is built through action, not just textbooks.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+<div class="text-center mb-16">
+<h2 data-aos="fade-up" class="text-4xl md:text-5xl text-primary mb-6 font-['Noto_Serif'] font-bold">Beyond the Classroom</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed">We provide the network, environment, and mentorship necessary for students to transition from learners to employed professionals.</p>
+</div>
+<div data-aos="fade-up" data-aos-delay="100" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="md:col-span-2 bg-primary-container p-12 text-on-primary flex flex-col justify-between min-h-[400px] rounded-[20px] shadow-sm hover:shadow-md transition-shadow">
+<div>
+<span class="material-symbols-outlined text-secondary-container text-5xl mb-6">verified</span>
+<h3 class="text-3xl font-headline mb-4">Career Placement Support</h3>
+<p class="text-on-primary-container text-lg leading-relaxed max-w-md">We actively partner with local manufacturing and construction sectors, helping to connect our skilled graduates directly with open employment opportunities.</p>
+</div>
+<div class="flex gap-4 items-center">
+<span class="text-xs font-label uppercase tracking-widest text-secondary-container">Industry Connections</span>
+<div class="flex-grow h-px bg-on-primary-container/20"></div>
+</div>
+</div>
+<div class="bg-surface-container p-12 flex flex-col justify-between border-l-4 border-tertiary-container rounded-[20px] shadow-sm hover:shadow-md transition-shadow">
+<div>
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6">build</span>
+<h3 class="text-2xl font-headline text-primary mb-4">Expert Mentorship</h3>
+<p class="text-on-surface-variant leading-relaxed">Learn directly from industry veterans. Our instructors bring decades of real-world site experience straight to your workstation.</p>
+</div>
+</div>
+<div class="bg-secondary-container p-12 flex flex-col justify-between rounded-[20px] shadow-sm hover:shadow-md transition-shadow">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">workspace_premium</span>
+<h3 class="text-2xl font-headline text-on-secondary-container mb-4">Alumni Network</h3>
+<p class="text-on-secondary-fixed-variant leading-relaxed">Join a growing community of Sakheni graduates who support each other, share job leads, and collaborate on major projects.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- Student Success Stories (Social Proof) -->
+<section class="py-24 bg-surface relative overflow-hidden">
+    <div class="max-w-[1100px] mx-auto px-6 md:px-12">
+        <div class="text-center mb-16 flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 bg-[#123524]/5 text-[#123524] px-6 py-2.5 rounded-full mb-6 border border-[#123524]/10">
+                <span class="material-symbols-outlined text-[22px] text-secondary">workspace_premium</span>
+                <span class="font-bold text-xs uppercase tracking-[0.2em] mt-[2px]">Graduate Success</span>
+            </div>
+            <h2 data-aos="fade-up" class="text-4xl md:text-[40px] mb-4 font-bold text-primary font-['Noto_Serif'] tracking-wide">Don't just take our word for it</h2>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-on-surface-variant max-w-xl text-[16px] font-['Work_Sans'] leading-relaxed">
+                Hear directly from our past students who have successfully transitioned from learners to full-time professionals in the industry.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div data-aos="fade-up" data-aos-delay="0" class="bg-surface border border-outline-variant/30 p-8 rounded-[24px] shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 relative group">
+                <div class="text-secondary mb-6 flex gap-1 text-[20px]">
+                    <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+                </div>
+                <p class="text-on-surface-variant italic mb-8 leading-[1.8] text-[15px] font-['Work_Sans']">
+                    "The practical training here is unmatched. I went from having zero experience to securing a permanent role as an artisan welder within two months of graduating. The instructors genuinely care about your success."
+                </p>
+                <div class="flex items-center gap-4 border-t border-outline-variant/20 pt-6">
+                    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-secondary font-bold text-xl font-['Noto_Serif']">S</div>
+                    <div>
+                        <h4 class="font-bold text-primary font-['Noto_Serif'] text-[16px]">Sipho M.</h4>
+                        <p class="text-[11px] text-secondary uppercase tracking-widest font-bold mt-1">Arc Welding Graduate</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div data-aos="fade-up" data-aos-delay="150" class="bg-surface border border-outline-variant/30 p-8 rounded-[24px] shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 relative group">
+                <div class="text-secondary mb-6 flex gap-1 text-[20px]">
+                    <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+                </div>
+                <p class="text-on-surface-variant italic mb-8 leading-[1.8] text-[15px] font-['Work_Sans']">
+                    "I chose Sakheni Ma Africa because of their QCTO accreditation. The state-of-the-art facilities and hands-on electrical training gave me the exact skills that my current employer was looking for."
+                </p>
+                <div class="flex items-center gap-4 border-t border-outline-variant/20 pt-6">
+                    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-secondary font-bold text-xl font-['Noto_Serif']">T</div>
+                    <div>
+                        <h4 class="font-bold text-primary font-['Noto_Serif'] text-[16px]">Thabo L.</h4>
+                        <p class="text-[11px] text-secondary uppercase tracking-widest font-bold mt-1">Electrical Graduate</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="bg-surface border border-outline-variant/30 p-8 rounded-[24px] shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 relative group">
+                <div class="text-secondary mb-6 flex gap-1 text-[20px]">
+                    <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+                </div>
+                <p class="text-on-surface-variant italic mb-8 leading-[1.8] text-[15px] font-['Work_Sans']">
+                    "The payment plans made it possible for me to afford my studies without stress. By the time I finished my Plumbing course, I already had the connections needed to start taking on my own contracts."
+                </p>
+                <div class="flex items-center gap-4 border-t border-outline-variant/20 pt-6">
+                    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-secondary font-bold text-xl font-['Noto_Serif']">N</div>
+                    <div>
+                        <h4 class="font-bold text-primary font-['Noto_Serif'] text-[16px]">Naledi K.</h4>
+                        <p class="text-[11px] text-secondary uppercase tracking-widest font-bold mt-1">Plumbing Graduate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO Optimized FAQ & Journey Section -->
+<section class="py-24 bg-surface-container relative overflow-hidden">
+    <!-- Decorative background element -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-0"></div>
+    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-surface-dim to-transparent -z-0"></div>
+
+    <div class="relative z-10 max-w-[1100px] mx-auto px-6 md:px-12">
+
+        <div class="text-center mb-16 flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#fcca66] to-[#e5b345] text-[#123524] px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(252,202,102,0.3)] mb-6 border border-white/20 transform hover:-translate-y-1 transition-all duration-300">
+    <span class="material-symbols-outlined text-[22px]">question_answer</span>
+    <span class="font-bold text-xs uppercase tracking-[0.2em] mt-[2px]">Your Questions Answered</span>
+</div>
+            <h2 data-aos="fade-up" class="text-4xl md:text-[40px] mb-4 font-bold text-primary font-['Noto_Serif'] tracking-wide">Frequently Asked Questions</h2>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-on-surface-variant max-w-2xl text-[16px] font-['Work_Sans'] leading-relaxed">
+                Deciding to learn a technical trade is a major step. Here is everything you need to know about getting your QCTO accreditation with Sakheni Ma Africa in Nigel.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 max-w-4xl mx-auto" id="faq-accordion">
+
+            <!-- FAQ Item 1 -->
+            <div data-aos="fade-up" data-aos-delay="150" class="bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-md hover:border-secondary/50 transition-all duration-300 overflow-hidden cursor-pointer faq-item">
+                <button class="w-full flex justify-between items-center p-6 md:p-8 text-left focus:outline-none">
+                    <h3 class="text-[18px] md:text-[20px] font-bold text-primary font-['Noto_Serif'] pr-4">Are your artisan courses officially recognized in South Africa?</h3>
+                    <span class="material-symbols-outlined text-secondary transform transition-transform duration-300 faq-icon">add_circle</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                    <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0 border-t border-outline-variant/10 mt-2">
+                        <p class="text-on-surface-variant leading-[1.8] text-[15px] font-['Work_Sans'] pt-4">
+                            Yes. Every single one of our technical programs (Welding, Electrical, and Plumbing) is fully vetted and accredited by the <strong>Quality Council for Trades and Occupations (QCTO)</strong>, as well as relevant SETAs like <strong>merSETA</strong>, <strong>CETA</strong>, and <strong>CHIETA</strong>. Your certificate will carry real weight in the South African job market.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-md hover:border-secondary/50 transition-all duration-300 overflow-hidden cursor-pointer faq-item">
+                <button class="w-full flex justify-between items-center p-6 md:p-8 text-left focus:outline-none">
+                    <h3 class="text-[18px] md:text-[20px] font-bold text-primary font-['Noto_Serif'] pr-4">Do I need a Matric certificate to enroll?</h3>
+                    <span class="material-symbols-outlined text-secondary transform transition-transform duration-300 faq-icon">add_circle</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                    <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0 border-t border-outline-variant/10 mt-2">
+                        <p class="text-on-surface-variant leading-[1.8] text-[15px] font-['Work_Sans'] pt-4">
+                            While having a Matric certificate is beneficial, our NQF Level 3 and Level 4 vocational courses are specifically designed to be accessible to a wide range of students. Contact our admissions team directly to discuss your educational background and the best entry route for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div data-aos="fade-up" data-aos-delay="250" class="bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-md hover:border-secondary/50 transition-all duration-300 overflow-hidden cursor-pointer faq-item">
+                <button class="w-full flex justify-between items-center p-6 md:p-8 text-left focus:outline-none">
+                    <h3 class="text-[18px] md:text-[20px] font-bold text-primary font-['Noto_Serif'] pr-4">Where does the practical training take place?</h3>
+                    <span class="material-symbols-outlined text-secondary transform transition-transform duration-300 faq-icon">add_circle</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                    <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0 border-t border-outline-variant/10 mt-2">
+                        <p class="text-on-surface-variant leading-[1.8] text-[15px] font-['Work_Sans'] pt-4">
+                            All of our hands-on training happens at our dedicated, state-of-the-art campus located in <strong>Nigel, Ekurhuleni (Gauteng)</strong>. Our workshops are fully equipped with the same industrial-grade tools you will use in the field.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="bg-surface border border-outline-variant/30 rounded-[20px] shadow-sm hover:shadow-md hover:border-secondary/50 transition-all duration-300 overflow-hidden cursor-pointer faq-item">
+                <button class="w-full flex justify-between items-center p-6 md:p-8 text-left focus:outline-none">
+                    <h3 class="text-[18px] md:text-[20px] font-bold text-primary font-['Noto_Serif'] pr-4">Do you offer flexible payment plans for the courses?</h3>
+                    <span class="material-symbols-outlined text-secondary transform transition-transform duration-300 faq-icon">add_circle</span>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                    <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0 border-t border-outline-variant/10 mt-2">
+                        <p class="text-on-surface-variant leading-[1.8] text-[15px] font-['Work_Sans'] pt-4">
+                            Yes. We believe that financial constraints shouldn't stop you from building a career. We offer structured, flexible payment plans to accommodate your budget.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Structured Data for Google SEO Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Are your artisan courses officially recognized in South Africa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every single one of our technical programs (Welding, Electrical, and Plumbing) is fully vetted and accredited by the Quality Council for Trades and Occupations (QCTO), as well as relevant SETAs like merSETA, CETA, and CHIETA."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do I need a Matric certificate to enroll?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While having a Matric certificate is beneficial, our NQF Level 3 and Level 4 vocational courses are specifically designed to be accessible to a wide range of students. Contact our admissions team directly to discuss your educational background."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Where does the practical training take place?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All of our hands-on training happens at our dedicated, state-of-the-art campus located in Nigel, Ekurhuleni (Gauteng). Our workshops are fully equipped with industrial-grade tools."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do you offer flexible payment plans for the courses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We believe that financial constraints shouldn't stop you from building a career. We offer structured, flexible payment plans to accommodate your budget."
+        }
+      }]
+    }
+    </script>
+</section>
+
+<!-- Include vanilla JS logic for the Accordion at the bottom of the body -->
+
+<!-- Accreditation Logos -->
+<section class="py-20 bg-surface-dim">
+<div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+<h3 data-aos="fade-up" class="text-center text-2xl md:text-3xl font-bold tracking-wide text-primary mb-12">Partners in Skills Development</h3>
+<div class="flex flex-wrap justify-center gap-12 md:gap-16 items-center">
+<style>
+  .group:hover .flip-inner { transform: rotateY(180deg); }
+</style>
+
+<div class="flex justify-center">
+    <a href="https://www.qcto.org.za" target="_blank" rel="noopener noreferrer" class="group block w-40 md:w-48 h-24" style="perspective: 1000px;">
+        <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" style="transform-style: preserve-3d;">
+            <!-- Front Side -->
+            <div class="absolute inset-0 flex items-center justify-center bg-transparent" style="backface-visibility: hidden;">
+                <img alt="QCTO Logo" class="h-16 md:h-24 object-contain drop-shadow-md hover:drop-shadow-xl transition-all duration-300" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775585319/02_l9nv4o.png"/>
+            </div>
+            <!-- Back Side -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#fcca66] rounded-xl shadow-[0_10px_30px_rgba(252,202,102,0.3)] border border-[#e5b345] text-center" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                <span class="material-symbols-outlined text-[#123524] mb-1 text-[20px]">open_in_new</span>
+                <span class="text-[11px] md:text-xs font-bold text-[#123524] font-['Work_Sans'] leading-tight tracking-wide">Visit their site<br>for more</span>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="flex justify-center">
+    <a href="https://www.merseta.org.za" target="_blank" rel="noopener noreferrer" class="group block w-40 md:w-48 h-24" style="perspective: 1000px;">
+        <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" style="transform-style: preserve-3d;">
+            <!-- Front Side -->
+            <div class="absolute inset-0 flex items-center justify-center bg-transparent" style="backface-visibility: hidden;">
+                <img alt="merSETA Logo" class="h-16 md:h-24 object-contain drop-shadow-md hover:drop-shadow-xl transition-all duration-300" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775585317/Pricelist-1_page0_imageFD_wbzxaz.png"/>
+            </div>
+            <!-- Back Side -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#fcca66] rounded-xl shadow-[0_10px_30px_rgba(252,202,102,0.3)] border border-[#e5b345] text-center" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                <span class="material-symbols-outlined text-[#123524] mb-1 text-[20px]">open_in_new</span>
+                <span class="text-[11px] md:text-xs font-bold text-[#123524] font-['Work_Sans'] leading-tight tracking-wide">Visit their site<br>for more</span>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="flex justify-center">
+    <a href="https://www.ceta.org.za" target="_blank" rel="noopener noreferrer" class="group block w-40 md:w-48 h-24" style="perspective: 1000px;">
+        <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" style="transform-style: preserve-3d;">
+            <!-- Front Side -->
+            <div class="absolute inset-0 flex items-center justify-center bg-transparent" style="backface-visibility: hidden;">
+                <img alt="CETA Logo" class="h-16 md:h-24 object-contain drop-shadow-md hover:drop-shadow-xl transition-all duration-300" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775585317/Pricelist-1_page0_image_hi0rqo.png"/>
+            </div>
+            <!-- Back Side -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#fcca66] rounded-xl shadow-[0_10px_30px_rgba(252,202,102,0.3)] border border-[#e5b345] text-center" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                <span class="material-symbols-outlined text-[#123524] mb-1 text-[20px]">open_in_new</span>
+                <span class="text-[11px] md:text-xs font-bold text-[#123524] font-['Work_Sans'] leading-tight tracking-wide">Visit their site<br>for more</span>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="flex justify-center">
+    <a href="https://chieta.org.za" target="_blank" rel="noopener noreferrer" class="group block w-40 md:w-48 h-24" style="perspective: 1000px;">
+        <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" style="transform-style: preserve-3d;">
+            <!-- Front Side -->
+            <div class="absolute inset-0 flex items-center justify-center bg-transparent" style="backface-visibility: hidden;">
+                <img alt="CHIETA Logo" class="h-16 md:h-24 object-contain drop-shadow-md hover:drop-shadow-xl transition-all duration-300" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775585317/01_v77jkk.png"/>
+            </div>
+            <!-- Back Side -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#fcca66] rounded-xl shadow-[0_10px_30px_rgba(252,202,102,0.3)] border border-[#e5b345] text-center" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                <span class="material-symbols-outlined text-[#123524] mb-1 text-[20px]">open_in_new</span>
+                <span class="text-[11px] md:text-xs font-bold text-[#123524] font-['Work_Sans'] leading-tight tracking-wide">Visit their site<br>for more</span>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="flex justify-center">
+    <a href="https://www.randwater.co.za/" target="_blank" rel="noopener noreferrer" class="group block w-40 md:w-48 h-24" style="perspective: 1000px;">
+        <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" style="transform-style: preserve-3d;">
+            <!-- Front Side -->
+            <div class="absolute inset-0 flex items-center justify-center bg-transparent" style="backface-visibility: hidden;">
+                <img alt="Rand Water Logo" class="h-16 md:h-24 object-contain drop-shadow-md hover:drop-shadow-xl transition-all duration-300" src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775756495/Randwater_ahoahe.png"/>
+            </div>
+            <!-- Back Side -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#fcca66] rounded-xl shadow-[0_10px_30px_rgba(252,202,102,0.3)] border border-[#e5b345] text-center" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                <span class="material-symbols-outlined text-[#123524] mb-1 text-[20px]">open_in_new</span>
+                <span class="text-[11px] md:text-xs font-bold text-[#123524] font-['Work_Sans'] leading-tight tracking-wide">Visit their site<br>for more</span>
+            </div>
+        </div>
+    </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out',
+    once: true,
+    offset: 100,
+    delay: 50
+  });
+</script>
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const btn = item.querySelector('button');
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('.faq-icon');
+
+            btn.addEventListener('click', () => {
+                const isOpen = content.classList.contains('max-h-96');
+
+                // Close all other open items first (optional, but makes it cleaner)
+                faqItems.forEach(otherItem => {
+                    if(otherItem !== item) {
+                        const otherContent = otherItem.querySelector('.faq-content');
+                        const otherIcon = otherItem.querySelector('.faq-icon');
+                        otherContent.classList.remove('max-h-96', 'opacity-100');
+                        otherContent.classList.add('max-h-0', 'opacity-0');
+                        otherIcon.classList.remove('rotate-45');
+                        otherIcon.textContent = 'add_circle';
+                    }
+                });
+
+                if (isOpen) {
+                    // Close this one
+                    content.classList.remove('max-h-96', 'opacity-100');
+                    content.classList.add('max-h-0', 'opacity-0');
+                    icon.classList.remove('rotate-45');
+                    icon.textContent = 'add_circle';
+                } else {
+                    // Open this one
+                    content.classList.remove('max-h-0', 'opacity-0');
+                    content.classList.add('max-h-96', 'opacity-100'); // max-h-96 is enough for the text
+                    icon.classList.add('rotate-45');
+                    icon.textContent = 'cancel'; // change icon to an X
+                }
+            });
+        });
+    });
+</script>
+
+
+</div>
+<!-- ======================================================= -->
+<!-- STOP COPYING HERE -->
+<!-- ======================================================= -->
+
+</body>
+</html>

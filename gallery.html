@@ -1,0 +1,806 @@
+<!-- ======================================================= -->
+<!-- COPY EVERYTHING BELOW AND PASTE DIRECTLY INTO ELEMENTOR -->
+<!-- ======================================================= -->
+
+<!-- 1. FONTS & ICONS -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- 2. TAILWIND CSS & CONFIG -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    important: '.sakheni-gallery-content',
+    corePlugins: { preflight: false },
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#205139",
+          "secondary": "#7b5900",
+          "background": "#fff8f2",
+          "surface": "#fff8f2",
+          "surface-container": "#faecd8",
+          "surface-container-low": "#fdf5e8",
+          "primary-container": "#123524",
+          "secondary-container": "#fcca66",
+        }
+      }
+    }
+  }
+</script>
+
+<!-- 3. SCOPED CSS RESET TO PROTECT ASTRA/ELEMENTOR -->
+<style>
+/* Force Elementor Full Width */
+.elementor-widget-html { width: 100% !important; }
+.elementor-widget-html .elementor-widget-container { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+.sakheni-gallery-content {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: #fff8f2;
+    color: #211b0f;
+    font-family: 'Work Sans', sans-serif;
+}
+@media (max-width: 100vw) {
+    .sakheni-gallery-content { width: 100%; left: auto; right: auto; margin-left: 0; margin-right: 0; }
+}
+
+.sakheni-gallery-content *, .sakheni-gallery-content ::before, .sakheni-gallery-content ::after {
+    box-sizing: inherit;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+.sakheni-gallery-content h1, .sakheni-gallery-content h2, .sakheni-gallery-content p { margin: 0; padding: 0; }
+.sakheni-gallery-content img { display: block; max-width: 100%; height: auto; }
+
+/* Lightbox Styles */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(18, 53, 36, 0.95);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+#lightbox img {
+    max-height: 85vh;
+    max-width: 90vw;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(252, 202, 102, 0.2);
+    transform: scale(0.95) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#lightbox.active img {
+    transform: scale(1) translateY(0);
+}
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fcca66;
+    font-size: 40px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.lightbox-close:hover { background: #fcca66; color: #123524; transform: rotate(90deg); }
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fcca66;
+    font-size: 40px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    user-select: none;
+}
+.lightbox-nav:hover { background: #fcca66; color: #123524; transform: translateY(-50%) scale(1.1); }
+.lightbox-prev { left: 40px; }
+.lightbox-next { right: 40px; }
+
+/* Smooth filtering transitions */
+.gallery-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Custom Animations */
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+.animate-marquee { display: flex; animation: scroll 25s linear infinite; }
+
+/* Fallback if AOS is blocked by Elementor */
+html:not(.no-js) [data-aos^=fade][data-aos^=fade] { opacity: 1 !important; transform: none !important; }
+</style>
+
+<!-- 4. MAIN HTML CONTENT -->
+<div class="sakheni-gallery-content">
+
+    <!-- Gallery Hero Section -->
+    <section class="relative min-h-[50vh] lg:min-h-[450px] flex items-center overflow-hidden bg-[#123524] pt-20 pb-24 md:pb-32">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fcca66_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#205139] via-[#123524]/90 to-[#123524]"></div>
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#205139] rounded-full blur-[120px] opacity-40 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#fcca66] rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+        </div>
+
+        <div class="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-8 md:px-12 w-full text-center">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <span class="inline-block bg-[#fcca66] text-[#123524] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-sm rounded-sm">Our Campus</span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#ffffff] mb-6 leading-[1.1] font-['Noto_Serif'] font-bold">
+                    Inside The Workshops.
+                </h1>
+                <p class="text-lg md:text-xl text-[#a5f3c6] font-light mb-0 max-w-2xl mx-auto leading-relaxed">
+                    Take a look at where the hands-on learning happens. Real students, real equipment, real mastery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Filtering & Masonry Gallery Section -->
+    <section class="relative z-20 max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 -mt-16 lg:-mt-24 mb-24">
+
+        <!-- Category Filters (Enhancement) -->
+        <div class="bg-white/80 backdrop-blur-xl border border-[#c1c8c1]/50 p-2 md:p-3 rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.08)] flex flex-wrap justify-center gap-2 mb-12 max-w-3xl mx-auto relative z-30" data-aos="fade-up" data-aos-delay="100">
+            <button class="filter-btn active px-6 py-3 rounded-full bg-[#fcca66] border border-[#fcca66] text-[#123524] font-bold text-xs md:text-sm uppercase tracking-widest transition-all duration-300 shadow-md" data-filter="all">All Photos</button>
+            <button class="filter-btn px-6 py-3 rounded-full bg-transparent border border-transparent text-[#424943] hover:bg-[#fdf5e8] hover:text-[#7b5900] font-bold text-xs md:text-sm uppercase tracking-widest transition-all duration-300" data-filter="welding">Welding</button>
+            <button class="filter-btn px-6 py-3 rounded-full bg-transparent border border-transparent text-[#424943] hover:bg-[#fdf5e8] hover:text-[#7b5900] font-bold text-xs md:text-sm uppercase tracking-widest transition-all duration-300" data-filter="construction">Construction</button>
+            <button class="filter-btn px-6 py-3 rounded-full bg-transparent border border-transparent text-[#424943] hover:bg-[#fdf5e8] hover:text-[#7b5900] font-bold text-xs md:text-sm uppercase tracking-widest transition-all duration-300" data-filter="campus">Campus</button>
+        </div>
+
+        <!-- CSS Columns for authentic Masonry layout -->
+        <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6" id="gallery-grid">
+
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(0)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502015/WhatsApp-Image-2026-04-01-at-9.12.44-AM-3_khmffj.jpg" alt="Sakheni Workshop 1" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(1)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502015/WhatsApp-Image-2026-04-01-at-9.12.44-AM-2_hyjexe.jpg" alt="Sakheni Workshop 2" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(2)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502014/WhatsApp-Image-2026-04-01-at-9.12.44-AM-1_ckrbad.jpg" alt="Sakheni Workshop 3" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox(3)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502013/WhatsApp-Image-2026-04-01-at-9.12.40-AM_oe1too.jpg" alt="Sakheni Workshop 4" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded CTA Block (Enhancement) -->
+            <div class="gallery-item break-inside-avoid mb-6 relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.2)] border border-[#fcca66]/30 bg-[#123524] p-8 flex flex-col justify-center items-center text-center min-h-[350px] group cursor-pointer hover:shadow-[0_20px_50px_rgba(252,202,102,0.3)] transition-all duration-500 hover:-translate-y-2" data-category="campus" onclick="window.location.href='https://sakhenimaafrica.co.za/contact-us'" data-aos="fade-up" data-aos-delay="200">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fcca66_1px,transparent_1px)] [background-size:16px_16px] group-hover:scale-110 transition-transform duration-700"></div>
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[#205139] rounded-full blur-[40px] opacity-60"></div>
+
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] mx-auto mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
+                        <span class="material-symbols-outlined text-[32px]">school</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-['Noto_Serif'] mb-4 leading-tight">Picture Yourself<br>Here.</h3>
+                    <p class="text-[#a5f3c6] text-[10px] uppercase tracking-[0.2em] font-bold mb-8">Enrollment is Open</p>
+
+                    <span class="inline-flex items-center gap-2 text-[#fcca66] font-bold text-sm tracking-widest uppercase border-b border-[#fcca66]/30 pb-1 group-hover:border-[#fcca66] transition-colors">
+                        Join Today <span class="material-symbols-outlined text-[18px] group-hover:translate-x-2 transition-transform duration-300">arrow_forward</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 5 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(4)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502012/WhatsApp-Image-2026-04-01-at-9.12.43-AM_cnlcv6.jpg" alt="Sakheni Workshop 5" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 6 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(5)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502012/WhatsApp-Image-2026-04-01-at-9.12.43-AM-2_sl9bsk.jpg" alt="Sakheni Workshop 6" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 7 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(6)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502011/WhatsApp-Image-2026-04-01-at-9.12.39-AM_s0yoil.jpg" alt="Sakheni Workshop 7" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 8 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox(7)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502011/WhatsApp-Image-2026-04-01-at-9.12.41-AM-1_cnwekb.jpg" alt="Sakheni Workshop 8" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 9 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(8)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502009/WhatsApp-Image-2026-04-01-at-9.12.41-AM_zybhkx.jpg" alt="Sakheni Workshop 9" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 10 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(9)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502008/WhatsApp-Image-2026-04-01-at-9.12.37-AM-1_ppide1.jpg" alt="Sakheni Workshop 10" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 11 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(10)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502005/WhatsApp-Image-2026-04-01-at-9.12.38-AM-2_dc2eeh.jpg" alt="Sakheni Workshop 11" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 12 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox(11)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502004/WhatsApp-Image-2026-04-01-at-9.12.38-AM_lnmg26.jpg" alt="Sakheni Workshop 12" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 13 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(12)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501997/WhatsApp-Image-2026-04-01-at-8.49.22-PM-1_mlhx9n.jpg" alt="Sakheni Workshop 13" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 14 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(13)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501996/WhatsApp-Image-2026-04-01-at-8.49.22-PM-2_st7zw4.jpg" alt="Sakheni Workshop 14" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 15 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(14)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501995/WhatsApp-Image-2026-04-01-at-8.49.24-PM-1_vetwoj.jpg" alt="Sakheni Workshop 15" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 16 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox(15)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501991/WhatsApp-Image-2026-04-01-at-8.49.24-PM_psuhib.jpg" alt="Sakheni Workshop 16" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 17 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(16)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501991/WhatsApp-Image-2026-04-01-at-8.49.25-PM-1_krrsae.jpg" alt="Sakheni Workshop 17" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 18 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(17)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501988/WhatsApp-Image-2026-04-01-at-8.49.30-PM_x2zj1r.jpg" alt="Sakheni Workshop 18" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 19 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="welding" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(18)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501988/WhatsApp-Image-2026-04-01-at-8.49.28-PM-1_wirrx6.jpg" alt="Sakheni Workshop 19" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 20 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="construction" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox(19)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501983/WhatsApp-Image-2026-04-01-at-8.49.29-PM-1_f3xaq7.jpg" alt="Sakheni Workshop 20" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 21 -->
+            <div class="gallery-item break-inside-avoid mb-6 group relative rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.1)] border border-[#c1c8c1]/30 cursor-pointer" data-category="campus" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(20)">
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#123524]/90 via-[#123524]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <!-- Image -->
+                <img src="https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501981/image-2026-04-02T160859.088_prnsdo.jpg" alt="Sakheni Workshop 21" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+
+                <!-- High-End Frosted Glass Hover Info (Enhancement) -->
+                <div class="absolute bottom-4 left-4 right-4 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center justify-between shadow-2xl">
+                        <div>
+                            <span class="block text-white font-['Noto_Serif'] font-bold text-sm leading-none mb-1">View Image</span>
+                            <span class="block text-white/80 font-['Work_Sans'] text-[9px] uppercase tracking-widest">High Resolution</span>
+                        </div>
+                        <div class="w-8 h-8 bg-[#fcca66] rounded-full flex items-center justify-center text-[#123524] shadow-[0_0_15px_rgba(252,202,102,0.4)]">
+                            <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Infinite Scrolling Marquee Banner (Consistency) -->
+    <div class="bg-[#fcca66] py-5 overflow-hidden relative z-20 border-y border-[#d4993a]/50 flex w-full whitespace-nowrap shadow-[0_10px_30px_rgba(252,202,102,0.15)] transform -rotate-1 scale-105 my-8">
+        <div class="animate-marquee flex items-center">
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">bolt</span> ARC & CO2 Welding</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">plumbing</span> Plumbing Mastery</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">foundation</span> Bricklaying</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">workspace_premium</span> Industry Ready</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">bolt</span> ARC & CO2 Welding</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">plumbing</span> Plumbing Mastery</span>
+        </div>
+        <div class="animate-marquee flex items-center" aria-hidden="true">
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">bolt</span> ARC & CO2 Welding</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">plumbing</span> Plumbing Mastery</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">foundation</span> Bricklaying</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">workspace_premium</span> Industry Ready</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">bolt</span> ARC & CO2 Welding</span>
+            <span class="text-[#123524] font-bold text-sm md:text-base tracking-[0.2em] uppercase mx-8 flex items-center gap-3"><span class="material-symbols-outlined text-[22px]">plumbing</span> Plumbing Mastery</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox" onclick="if(event.target === this) closeLightbox()">
+    <span class="material-symbols-outlined lightbox-close" onclick="closeLightbox()">close</span>
+    <span class="material-symbols-outlined lightbox-nav lightbox-prev" onclick="prevImage(event)">chevron_left</span>
+    <img id="lightbox-img" src="" alt="Full Screen Gallery Image">
+    <span class="material-symbols-outlined lightbox-nav lightbox-next" onclick="nextImage(event)">chevron_right</span>
+</div>
+
+<!-- 5. SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Setup Image Array for Lightbox
+  const images = [
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502015/WhatsApp-Image-2026-04-01-at-9.12.44-AM-3_khmffj.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502015/WhatsApp-Image-2026-04-01-at-9.12.44-AM-2_hyjexe.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502014/WhatsApp-Image-2026-04-01-at-9.12.44-AM-1_ckrbad.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502013/WhatsApp-Image-2026-04-01-at-9.12.40-AM_oe1too.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502012/WhatsApp-Image-2026-04-01-at-9.12.43-AM_cnlcv6.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502012/WhatsApp-Image-2026-04-01-at-9.12.43-AM-2_sl9bsk.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502011/WhatsApp-Image-2026-04-01-at-9.12.39-AM_s0yoil.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502011/WhatsApp-Image-2026-04-01-at-9.12.41-AM-1_cnwekb.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502009/WhatsApp-Image-2026-04-01-at-9.12.41-AM_zybhkx.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502008/WhatsApp-Image-2026-04-01-at-9.12.37-AM-1_ppide1.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502005/WhatsApp-Image-2026-04-01-at-9.12.38-AM-2_dc2eeh.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775502004/WhatsApp-Image-2026-04-01-at-9.12.38-AM_lnmg26.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501997/WhatsApp-Image-2026-04-01-at-8.49.22-PM-1_mlhx9n.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501996/WhatsApp-Image-2026-04-01-at-8.49.22-PM-2_st7zw4.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501995/WhatsApp-Image-2026-04-01-at-8.49.24-PM-1_vetwoj.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501991/WhatsApp-Image-2026-04-01-at-8.49.24-PM_psuhib.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501991/WhatsApp-Image-2026-04-01-at-8.49.25-PM-1_krrsae.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501988/WhatsApp-Image-2026-04-01-at-8.49.30-PM_x2zj1r.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501988/WhatsApp-Image-2026-04-01-at-8.49.28-PM-1_wirrx6.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501983/WhatsApp-Image-2026-04-01-at-8.49.29-PM-1_f3xaq7.jpg',
+      'https://res.cloudinary.com/dddnkg3p9/image/upload/v1775501981/image-2026-04-02T160859.088_prnsdo.jpg',
+  ];
+  let currentIndex = 0;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; 
+  }
+
+  function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; 
+  }
+
+  function nextImage(e) {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex];
+  }
+
+  function prevImage(e) {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex];
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage(e);
+      if (e.key === 'ArrowLeft') prevImage(e);
+  });
+
+  // Filter Logic (Enhancement)
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+          // Update active button styling
+          filterBtns.forEach(b => {
+              b.classList.remove('bg-[#fcca66]', 'border-[#fcca66]', 'text-[#123524]', 'shadow-md');
+              b.classList.add('bg-transparent', 'border-transparent', 'text-[#424943]');
+          });
+          btn.classList.add('bg-[#fcca66]', 'border-[#fcca66]', 'text-[#123524]', 'shadow-md');
+          btn.classList.remove('bg-transparent', 'border-transparent', 'text-[#424943]');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          galleryItems.forEach(item => {
+              if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                  item.style.display = 'block';
+                  setTimeout(() => {
+                      item.style.opacity = '1';
+                      item.style.transform = 'scale(1)';
+                  }, 50);
+              } else {
+                  item.style.opacity = '0';
+                  item.style.transform = 'scale(0.8)';
+                  setTimeout(() => {
+                      item.style.display = 'none';
+                  }, 400); // Wait for transition
+              }
+          });
+      });
+  });
+
+  // Init AOS
+  document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+          if(typeof AOS !== 'undefined') {
+            AOS.init({ duration: 1000, easing: 'ease-out', once: true, offset: 50 });
+          }
+      }, 500); 
+  });
+</script>
